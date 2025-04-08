@@ -1,0 +1,5 @@
+relationship cfdda9cb-bdcf-47d8-bc80-c3f8705db5ec
+	joinOnDateBehavior: datePartOnly
+	fromColumn: marketing_campaign_dataset.Date
+	toColumn: LocalDateTable_5d59d4cc-8a7e-4ef9-b7d8-ec1a49e69031.Date
+

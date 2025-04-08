@@ -1,0 +1,159 @@
+table marketing_campaign_dataset
+	lineageTag: 7bf13932-3648-4812-b386-2dd9b9bb0eb7
+
+	column Campaign_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dc21f24-a681-4f57-b7f2-ededeb2d9312
+		summarizeBy: count
+		sourceColumn: Campaign_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: fa9ddb4b-a1fa-4aff-9a09-6a72c35ca76c
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaign_Type
+		dataType: string
+		lineageTag: 4172bf7e-17c4-4594-982c-1830d1774456
+		summarizeBy: none
+		sourceColumn: Campaign_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target_Audience
+		dataType: string
+		lineageTag: d693a000-d4f9-4077-baca-b5600168dfc9
+		summarizeBy: none
+		sourceColumn: Target_Audience
+
+		annotation SummarizationSetBy = Automatic
+
+	column Duration
+		dataType: string
+		lineageTag: 81a6f194-b9a7-42b3-afc4-8d162625db8c
+		summarizeBy: none
+		sourceColumn: Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel_Used
+		dataType: string
+		lineageTag: fd816f25-1ec9-4651-8a7d-194bbd008878
+		summarizeBy: none
+		sourceColumn: Channel_Used
+
+		annotation SummarizationSetBy = Automatic
+
+	column Conversion_Rate
+		dataType: double
+		lineageTag: deb77672-eeeb-42f3-aa3a-068189d7b025
+		summarizeBy: sum
+		sourceColumn: Conversion_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Acquisition_Cost
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 569c6d72-6469-430f-b250-e314116257ee
+		summarizeBy: sum
+		sourceColumn: Acquisition_Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROI
+		dataType: double
+		formatString: #,0
+		lineageTag: 972f4a08-5c31-4782-9117-477b50b1584b
+		summarizeBy: sum
+		sourceColumn: ROI
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 8fe92d07-f6d7-4a8b-a696-f2d69a4a9a14
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Language
+		dataType: string
+		lineageTag: 8c4d3c4d-70a9-4eb0-8be1-feb69c10694c
+		summarizeBy: none
+		sourceColumn: Language
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: #,0
+		lineageTag: a9829053-19bf-4043-9fe3-31def58fd6fb
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: f04fd916-22e9-459c-8e5a-0b2c2d1b1438
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Engagement_Score
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1016121f-379f-47cb-8eb8-8147ad1d4b10
+		summarizeBy: sum
+		sourceColumn: Engagement_Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_Segment
+		dataType: string
+		lineageTag: f910f897-a912-4adf-a2ed-7bd33441defa
+		summarizeBy: none
+		sourceColumn: Customer_Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4df08268-2591-4802-ab25-a19f2bc04fef
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: cfdda9cb-bdcf-47d8-bc80-c3f8705db5ec
+			defaultHierarchy: LocalDateTable_5d59d4cc-8a7e-4ef9-b7d8-ec1a49e69031.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition marketing_campaign_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Asus\OneDrive - Gaia Farming\Desktop\Upwork\Projects\Power BI\source\marketing_campaign_dataset.csv"),[Delimiter=",", Columns=16, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Campaign_ID", Int64.Type}, {"Company", type text}, {"Campaign_Type", type text}, {"Target_Audience", type text}, {"Duration", type text}, {"Channel_Used", type text}, {"Conversion_Rate", type number}, {"Acquisition_Cost", Currency.Type}, {"ROI", type number}, {"Location", type text}, {"Language", type text}, {"Clicks", Int64.Type}, {"Impressions", Int64.Type}, {"Engagement_Score", Int64.Type}, {"Customer_Segment", type text}, {"Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Marketing Performance dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ea00b1aa-6a9f-4a37-b5ee-bdae02a85f1b"
+  }
+}
