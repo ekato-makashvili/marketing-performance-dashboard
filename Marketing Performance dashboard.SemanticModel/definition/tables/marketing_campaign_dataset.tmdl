@@ -52,13 +52,12 @@ table marketing_campaign_dataset
 
 	column Conversion_Rate
 		dataType: double
+		formatString: #,0
 		lineageTag: deb77672-eeeb-42f3-aa3a-068189d7b025
 		summarizeBy: sum
 		sourceColumn: Conversion_Rate
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Acquisition_Cost
 		dataType: decimal
@@ -81,6 +80,7 @@ table marketing_campaign_dataset
 	column Location
 		dataType: string
 		lineageTag: 8fe92d07-f6d7-4a8b-a696-f2d69a4a9a14
+		dataCategory: City
 		summarizeBy: none
 		sourceColumn: Location
 
@@ -105,7 +105,7 @@ table marketing_campaign_dataset
 
 	column Impressions
 		dataType: int64
-		formatString: 0
+		formatString: #,0
 		lineageTag: f04fd916-22e9-459c-8e5a-0b2c2d1b1438
 		summarizeBy: sum
 		sourceColumn: Impressions

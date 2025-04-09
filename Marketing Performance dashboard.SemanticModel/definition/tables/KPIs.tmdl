@@ -1,0 +1,43 @@
+table KPIs
+	lineageTag: 1e011c0a-a9c8-4a1c-888c-71eddee9b5a1
+
+	measure Clicks = SUM(marketing_campaign_dataset[Clicks])
+		formatString: #,0
+		lineageTag: 2fa9346b-cda1-40ba-80c8-f0839a030b13
+
+	measure Cost = SUM(marketing_campaign_dataset[Acquisition_Cost])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7ae575c8-2022-47ac-896c-8b6ddbea54d1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Conversion Rate' = SUM(marketing_campaign_dataset[Conversion_Rate])
+		lineageTag: 94819176-899b-4568-92bf-096d072d80a1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Impressions = SUM(marketing_campaign_dataset[Impressions])
+		formatString: #,0
+		lineageTag: 0fbe6283-4ce8-44da-afce-31f9293887bf
+
+	measure 'Engagement Score' = SUM(marketing_campaign_dataset[Engagement_Score])
+		formatString: #,0
+		lineageTag: 17f4c0cd-9ad7-47c4-b179-39d76acb95ce
+
+	measure ROI = SUM(marketing_campaign_dataset[ROI])
+		lineageTag: 593dfb22-a99b-4f16-8450-31ae7c610880
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition KPIs = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

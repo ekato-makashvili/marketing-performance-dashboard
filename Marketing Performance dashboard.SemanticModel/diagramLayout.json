@@ -20,6 +20,58 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 98
+          },
+          "nodeIndex": "KPIs",
+          "nodeLineageTag": "1e011c0a-a9c8-4a1c-888c-71eddee9b5a1",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 74
+          },
+          "nodeIndex": "Parameters",
+          "nodeLineageTag": "633bba4d-39f9-4122-aef6-0f4a722d8f83",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 74
+          },
+          "nodeIndex": "Customer Segment",
+          "nodeLineageTag": "79bbf630-68ba-45d4-9d9d-bdba46819cd4",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 74
+          },
+          "nodeIndex": "Category",
+          "nodeLineageTag": "00ea2094-8d8a-45e4-ae19-8ea12bf97c23",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

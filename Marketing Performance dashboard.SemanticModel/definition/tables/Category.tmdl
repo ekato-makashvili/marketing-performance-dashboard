@@ -1,0 +1,49 @@
+table Category
+	lineageTag: 00ea2094-8d8a-45e4-ae19-8ea12bf97c23
+
+	column Category
+		lineageTag: 8779223c-06bc-4755-a5d8-6669eda5a3c4
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Category Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Category Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Fields'
+		isHidden
+		lineageTag: a7ead6ca-e6aa-45ae-a5a2-af1435f6b608
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Category Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Order'
+		isHidden
+		formatString: 0
+		lineageTag: 237f2356-b434-401b-9d84-4d7a3fbbe35d
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Category = calculated
+		mode: import
+		source =
+				{
+				    ("Campaign_Type", NAMEOF('marketing_campaign_dataset'[Campaign_Type]), 0),
+				    ("Channel_Used", NAMEOF('marketing_campaign_dataset'[Channel_Used]), 1),
+				    ("Company", NAMEOF('marketing_campaign_dataset'[Company]), 2)
+				}
+
+	annotation PBI_Id = 12de3d9e23dd492a846197735cc279ad
+

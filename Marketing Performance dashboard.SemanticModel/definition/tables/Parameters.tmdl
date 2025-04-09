@@ -1,0 +1,52 @@
+table Parameters
+	lineageTag: 633bba4d-39f9-4122-aef6-0f4a722d8f83
+
+	column Parameters
+		lineageTag: 56a08f6d-d31b-4414-bbbb-669e05f5ef30
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameters Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameters Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameters Fields'
+		isHidden
+		lineageTag: cad74182-03fc-4e9d-b7a4-664622c0a449
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameters Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameters Order'
+		isHidden
+		formatString: 0
+		lineageTag: fa1ae40c-2701-4eaa-ba14-c551d04cc79b
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parameters = calculated
+		mode: import
+		source =
+				{
+				    ("Engagement Score", NAMEOF('KPIs'[Engagement Score]), 0),
+				    ("Conversion Rate", NAMEOF('KPIs'[Conversion Rate]), 1),
+				    ("Impressions", NAMEOF('KPIs'[Impressions]), 2),
+				    ("ROI", NAMEOF('KPIs'[ROI]), 3),
+				    ("Clicks", NAMEOF('KPIs'[Clicks]), 4),
+				    ("Cost", NAMEOF('KPIs'[Cost]), 5)
+				}
+
+	annotation PBI_Id = d63eb7380d2a46f293529b318f68f0c0
+

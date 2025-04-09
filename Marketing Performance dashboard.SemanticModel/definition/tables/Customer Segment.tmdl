@@ -1,0 +1,50 @@
+table 'Customer Segment'
+	lineageTag: 79bbf630-68ba-45d4-9d9d-bdba46819cd4
+
+	column 'Customer Segment'
+		lineageTag: a56f628b-71c3-4fe6-bbef-63fcfadff951
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Customer Segment Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Customer Segment Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Segment Fields'
+		isHidden
+		lineageTag: d3ca4fc4-e6e2-437c-ade7-a888d17171a2
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Customer Segment Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Segment Order'
+		isHidden
+		formatString: 0
+		lineageTag: 5af730bf-0270-4c18-99b2-88314501f63a
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Segment' = calculated
+		mode: import
+		source =
+				{
+				    ("Location", NAMEOF('marketing_campaign_dataset'[Location]), 0),
+				    ("Language", NAMEOF('marketing_campaign_dataset'[Language]), 1),
+				    ("Customer_Segment", NAMEOF('marketing_campaign_dataset'[Customer_Segment]), 2),
+				    ("Target_Audience", NAMEOF('marketing_campaign_dataset'[Target_Audience]), 3)
+				}
+
+	annotation PBI_Id = aafa05635d5143c7b23a2b44c7fc2ffc
+
