@@ -1,0 +1,29 @@
+table Date
+	lineageTag: 25faa9ee-3ca1-40f1-9dd4-54b52356943f
+
+	column Date
+		formatString: General Date
+		lineageTag: 6b7ddeb8-0331-43bb-8989-e114046ff141
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 5d5b2080-d470-48f9-8a9c-a39d0ce96a5b
+			defaultHierarchy: LocalDateTable_85a3f56d-551a-48b9-b6b8-edb52c33801c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('Date'[Date],"mmm")
+		lineageTag: 5240719d-8110-4d40-9419-a17231b4afbc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source = CALENDARAUTO()
+
+	annotation PBI_Id = 986ed79d3f0f45f8b81df9ae58c52083
+

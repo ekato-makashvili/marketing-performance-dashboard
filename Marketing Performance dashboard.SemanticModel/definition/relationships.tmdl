@@ -1,5 +1,9 @@
-relationship cfdda9cb-bdcf-47d8-bc80-c3f8705db5ec
+relationship 5d5b2080-d470-48f9-8a9c-a39d0ce96a5b
 	joinOnDateBehavior: datePartOnly
+	fromColumn: Date.Date
+	toColumn: LocalDateTable_85a3f56d-551a-48b9-b6b8-edb52c33801c.Date
+
+relationship a4750ccf-66eb-d52d-2f80-3d98e469091e
 	fromColumn: marketing_campaign_dataset.Date
-	toColumn: LocalDateTable_5d59d4cc-8a7e-4ef9-b7d8-ec1a49e69031.Date
+	toColumn: Date.Date
 

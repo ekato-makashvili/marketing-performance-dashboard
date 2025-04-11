@@ -42,8 +42,8 @@ table 'Customer Segment'
 				{
 				    ("Location", NAMEOF('marketing_campaign_dataset'[Location]), 0),
 				    ("Language", NAMEOF('marketing_campaign_dataset'[Language]), 1),
-				    ("Customer_Segment", NAMEOF('marketing_campaign_dataset'[Customer_Segment]), 2),
-				    ("Target_Audience", NAMEOF('marketing_campaign_dataset'[Target_Audience]), 3)
+				    ("Cstmr Segment", NAMEOF('marketing_campaign_dataset'[Customer_Segment]), 2),
+				    ("Target Audience", NAMEOF('marketing_campaign_dataset'[Target_Audience]), 3)
 				}
 
 	annotation PBI_Id = aafa05635d5143c7b23a2b44c7fc2ffc

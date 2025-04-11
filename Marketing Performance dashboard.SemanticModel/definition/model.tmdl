@@ -16,11 +16,12 @@ annotation PBI_ProTooling = ["DevMode"]
 
 ref table marketing_campaign_dataset
 ref table DateTableTemplate_61f4180e-1299-4ce3-933e-e24849b96504
-ref table LocalDateTable_5d59d4cc-8a7e-4ef9-b7d8-ec1a49e69031
 ref table KPIs
 ref table Parameters
 ref table 'Customer Segment'
 ref table Category
+ref table Date
+ref table LocalDateTable_85a3f56d-551a-48b9-b6b8-edb52c33801c
 
 ref cultureInfo en-US
 
